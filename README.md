@@ -38,10 +38,13 @@ The directories included in this repo:
 	- launch the chat client: sudo ant -emacs run
 		<br/> the client is launched on the default LAN(localhost)
 	- to launch the client on a precise network you have to provide the ip address:
+	``shell
 		<br/> sudo ant -emacs -Dip="ip address" run   	
+	``
 * you have the choice to launch the client on the console mode (run target) or GUI mode (runGUI target):
+	``shell
 		<br/> (sudo ant -q -Dip="ip_address" runGUI) or (sudo ant -q runGUI)
-
+	``
 
 <hr />
 <img src="https://github.com/narek-davtyan/RMI-MySQL-Chat-Server/blob/master/ClientSide/img/home1.png" width="400">
