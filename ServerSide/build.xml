@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="ServerSide">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="ServerSide.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../database/mysql-connector-java-5.1.45-bin.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="ServerSide.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="ChatServer">
+        <java classname="ChatServer" failonerror="true" fork="yes">
+            <jvmarg line="-Djava.security.policy=file:security.policy -Djava.rmi.server.codebase=file:bin/"/>
+            <classpath refid="ServerSide.classpath"/>
+        </java>
+    </target>
+    <target name="run">
+       <property name="user" value="root"/>
+       <property name="pass" value=""/>
+       <property name="ip" value="localhost"/>
+       <java classname="ChatServer" fork="true">
+         <jvmarg line="-Djava.security.policy=file:security.policy -Djava.rmi.server.codebase=file:bin/"/>
+         <arg value="${user}"/>
+         <arg value="${pass}"/>
+         <arg value="${ip}"/>
+          <classpath>
+             <pathelement location="bin/"/>
+             <pathelement location="../database/mysql-connector-java-5.1.45-bin.jar"/>
+          </classpath>
+       </java>
+    </target>
+</project>
