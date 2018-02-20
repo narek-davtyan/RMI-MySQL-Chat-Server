@@ -62,7 +62,7 @@ The directories included in this repo:
 	```sh
 	sudo ant -q -Dip="ip_address" runGUI
 	``` 
-<a name="myfootnote1">1</a>: ip_address has to correspond to the server machine's ip address on the common to server and all clients network
+<a name="myfootnote1">1</a>: ip_address corresponds to server machine's ip address on the network (common to the server and all clients)
 <hr />
 <img src="https://github.com/narek-davtyan/RMI-MySQL-Chat-Server/blob/master/ClientSide/img/home1.png" width="400">
 <HR />
