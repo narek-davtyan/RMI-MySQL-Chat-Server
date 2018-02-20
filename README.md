@@ -37,7 +37,7 @@ The directories included in this repo:
 	```sh
 	sudo ant -emacs -Duser="databaseUser" -Dpass="databasePassword" run  	
 	```
-	- to launch the server on a precise network you need to provide [the ip address][1]:
+	- to launch the server on a precise network you need to provide the ip address<sup>[1](#myfootnote1)</sup>:
 	```sh
 	sudo ant -emacs -Duser="databaseUser" -Dpass="databasePassword" -Dip="ip_address" run
 	```
@@ -50,7 +50,7 @@ The directories included in this repo:
 	```sh
 	sudo ant -emacs run
 	```
-	- to launch the client in console mode on a precise network you need to provide [the ip address][1]:  
+	- to launch the client in console mode on a precise network you need to provide the ip address<sup>[1](#myfootnote1)</sup>:  
 	```sh
 	sudo ant -emacs -Dip="ip address" run   	
 	```
@@ -58,11 +58,11 @@ The directories included in this repo:
 	```sh 
 	sudo ant -q runGUI
 	```
-	- to launch the client in GUI mode on a precise network you need to provide [the ip address][1]:  
+	- to launch the client in GUI mode on a precise network you need to provide the ip address<sup>[1](#myfootnote1)</sup>:  
 	```sh
 	sudo ant -q -Dip="ip_address" runGUI
 	``` 
-[1]: The ip address has to correspond to the server machine's ip address on the common to server and all clients network
+<a name="myfootnote1">1</a>: The ip address has to correspond to the server machine's ip address on the common to server and all clients network
 <hr />
 <img src="https://github.com/narek-davtyan/RMI-MySQL-Chat-Server/blob/master/ClientSide/img/home1.png" width="400">
 <HR />
