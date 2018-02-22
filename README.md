@@ -33,11 +33,11 @@ The directories included in this repo:
 	```sh
 	sudo ant
 	```
-	- launch the chat server on the default LAN (localhost):  
+	- launch the chat server on the default LAN (localhost)<sup>[1](#myfootnote1)</sup>:  
 	```sh
 	sudo ant -emacs -Duser="databaseUser" -Dpass="databasePassword" run  	
 	```
-	- to launch the server on a precise network you need to provide ip_address<sup>[1](#myfootnote1)</sup>:
+	- to launch the server on a precise network you need to provide ip_address<sup>[2](#myfootnote2)</sup>:
 	```sh
 	sudo ant -emacs -Duser="databaseUser" -Dpass="databasePassword" -Dip="ip_address" run
 	```
@@ -46,23 +46,24 @@ The directories included in this repo:
 	```sh
 	sudo ant
 	```
-	- launch the chat client in console mode on the default LAN (localhost): 
+	- launch the chat client in console mode on the default LAN (localhost)<sup>[1](#myfootnote1)</sup>:  
 	```sh
 	sudo ant -emacs run
 	```
-	- to launch the client in console mode on a precise network you need to provide ip_address<sup>[1](#myfootnote1)</sup>:  
+	- to launch the client in console mode on a precise network you need to provide ip_address<sup>[2](#myfootnote2)</sup>:  
 	```sh
 	sudo ant -emacs -Dip="ip_address" run   	
 	```
-	- launch the chat client in GUI mode on the default LAN (localhost):
+	- launch the chat client in GUI mode on the default LAN (localhost)<sup>[1](#myfootnote1)</sup>:  
 	```sh 
 	sudo ant -q runGUI
 	```
-	- to launch the client in GUI mode on a precise network you need to provide ip_address<sup>[1](#myfootnote1)</sup>:  
+	- to launch the client in GUI mode on a precise network you need to provide ip_address<sup>[2](#myfootnote2)</sup>:  
 	```sh
 	sudo ant -q -Dip="ip_address" runGUI
 	``` 
-<a name="myfootnote1">1</a>: ip_address corresponds to server machine's ip address on the network (common to the server and all clients)
+<a name="myfootnote1">1</a>: server and all clients have to run on the same machine    
+<a name="myfootnote2">2</a>: ip_address corresponds to server machine's ip address on the network (common to the server and all clients)
 <hr />
 <img src="https://github.com/narek-davtyan/RMI-MySQL-Chat-Server/blob/master/ClientSide/img/home1.png" width="400">
 <HR />
